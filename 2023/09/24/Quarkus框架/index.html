@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Quarkus框架 | 霖霖的博客</title><meta name="author" content="霖霖"><meta name="copyright" content="霖霖"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Quarkus学习云原生 指构建和运行应用以充分利用通过云技术交付模式交付的分布式计算。云原生应用旨在充分利用云技术平台特有的可扩展性、弹性和灵活性优势。  GraalVM（格劳尔虚拟机）是一种通用的虚拟机，它支持多种编程语言，包括Java、JavaScript、Python、Ruby、R、WebAssembly等。GraalVM的目标是提供高性能、低内存消耗的运行环境，以支持各种语言和应用的混合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quarkus框架">
+<meta property="og:url" content="http://blog.linlin.online/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="霖霖的博客">
+<meta property="og:description" content="Quarkus学习云原生 指构建和运行应用以充分利用通过云技术交付模式交付的分布式计算。云原生应用旨在充分利用云技术平台特有的可扩展性、弹性和灵活性优势。  GraalVM（格劳尔虚拟机）是一种通用的虚拟机，它支持多种编程语言，包括Java、JavaScript、Python、Ruby、R、WebAssembly等。GraalVM的目标是提供高性能、低内存消耗的运行环境，以支持各种语言和应用的混合">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg">
+<meta property="article:published_time" content="2023-09-24T07:32:11.000Z">
+<meta property="article:modified_time" content="2023-09-24T07:33:45.787Z">
+<meta property="article:author" content="霖霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.linlin.online/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Quarkus框架',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-24 15:33:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2023/05/02/a6f2b4f9a3684694824b18892588c9e3file.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="霖霖的博客"><span class="site-name">霖霖的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Quarkus框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-24T07:32:11.000Z" title="发表于 2023-09-24 15:32:11">2023-09-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-24T07:33:45.787Z" title="更新于 2023-09-24 15:33:45">2023-09-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Quarkus框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Quarkus学习"><a href="#Quarkus学习" class="headerlink" title="Quarkus学习"></a>Quarkus学习</h2><h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2><blockquote>
+<p>指构建和运行应用以充分利用通过云技术交付模式交付的分布式计算。云原生应用旨在充分利用云技术平台特有的可扩展性、弹性和灵活性优势。</p>
+</blockquote>
+<h2 id="GraalVM（格劳尔虚拟机）"><a href="#GraalVM（格劳尔虚拟机）" class="headerlink" title="GraalVM（格劳尔虚拟机）"></a>GraalVM（格劳尔虚拟机）</h2><p>是一种通用的虚拟机，它支持多种编程语言，包括Java、JavaScript、Python、Ruby、R、WebAssembly等。GraalVM的目标是提供高性能、低内存消耗的运行环境，以支持各种语言和应用的混合使用。<br><em>多语言支持：</em> GraalVM 不仅支持Java，还支持众多其他编程语言。这意味着你可以在同一个运行时环境中运行不同语言的代码，并且它们可以互相调用。</p>
+<p><em>高性能：</em> GraalVM 的即时编译器（JIT）具有出色的性能，使得它成为一种在各种应用中提供高吞吐量和低延迟的虚拟机。</p>
+<p><em>原生图像构建：</em> GraalVM 支持将Java应用程序编译成本地机器码，从而减少了启动时间和内存占用。这对于云原生和微服务应用程序特别有用。</p>
+<p><em>JavaScript支持：</em> GraalVM 包括JavaScript引擎，使得你可以在Java应用中嵌入JavaScript代码，或者使用JavaScript编写服务器端应用。</p>
+<p><em>WebAssembly支持：</em> GraalVM 支持WebAssembly，这是一种用于在浏览器和服务器上运行低级代码的技术。这意味着你可以在GraalVM中运行WebAssembly模块。</p>
+<p><em>扩展性：</em> GraalVM 的架构支持轻松扩展，允许添加新的语言运行时或优化编译器。</p>
+<p><em>开源社区：</em> GraalVM 是一个开源项目，拥有活跃的社区支持，你可以在GitHub上找到它的源代码和相关资源。</p>
+<p><em>适用场景：</em> GraalVM 在云计算、服务器端应用、嵌入式系统和数据科学等领域都有广泛的应用。</p>
+<blockquote>
+<p>GraalVM 是一种强大的多语言虚拟机，可以在各种场景中提供高性能和灵活性。</p>
+</blockquote>
+<h2 id="指令式与响应式"><a href="#指令式与响应式" class="headerlink" title="指令式与响应式"></a>指令式与响应式</h2><h3 id="1-线程的问题"><a href="#1-线程的问题" class="headerlink" title="1.线程的问题"></a>1.线程的问题</h3><ol>
+<li>在传统的指令式方法中，框架分配一个线程来处理请求。因此，请求的整个处理都运行在这个工作线程上。这个模型的扩展性不太好。事实上，要处理多个并发请求，你需要多个线程。因此，应用程序的并发性受到线程数量的限制。此外，只要您的代码与远程服务交互，这些线程就会被阻塞。因此，这会导致资源的低效使用，因为您可能需要更多的线程，而每个线程在映射到OS线程时，在内存和CPU方面都有成本。</li>
+<li>响应式模型依赖于非阻塞 I&#x2F;O和不同的执行模型。非阻塞I&#x2F;O提供了一种处理并发I&#x2F;O的有效方法。最小数量的线程称为I&#x2F;O线程，可以处理许多并发I&#x2F;O。使用这样的模型，请求处理不会委托给工作线程，而是直接使用这些I&#x2F;O线程。它节省了内存和CPU，因为不需要创建工作线程来处理请求。它还改善了并发性，因为它消除了对线程数量的限制。最后，它还改善了响应时间，因为它减少了线程开关的数量。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Uni&lt;PanacheEntityBase&gt; findById = Fruit.findById(id);</span><br><span class="line">Uni&lt;Fruit&gt; findById2 = Fruit.&lt;Fruit&gt;findById(id);</span><br></pre></td></tr></table></figure>
+
+<p><code>Fruit</code> 继承 <code>PanacheEntityBase</code><br>指定返回类型为Fruit</p>
+<h2 id="Muity响应式包"><a href="#Muity响应式包" class="headerlink" title="Muity响应式包"></a>Muity响应式包</h2><h3 id="Multi流中的转换方法transformToMultiAndMerge和transformToMultiAndConcatenate的区别"><a href="#Multi流中的转换方法transformToMultiAndMerge和transformToMultiAndConcatenate的区别" class="headerlink" title="Multi流中的转换方法transformToMultiAndMerge和transformToMultiAndConcatenate的区别"></a>Multi流中的转换方法<code>transformToMultiAndMerge</code>和<code>transformToMultiAndConcatenate</code>的区别</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Multi&lt;Long&gt; multi = Multi.createFrom().items(<span class="number">1L</span>, <span class="number">2L</span>, <span class="number">3L</span>, <span class="number">4L</span>);</span><br><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">multi.onItem().transformToMultiAndMerge(item -&gt; Multi.createFrom().items(item * item)</span><br><span class="line">        .call(x -&gt; &#123;</span><br><span class="line">            <span class="type">Duration</span> <span class="variable">delay</span> <span class="operator">=</span> Duration.ofMillis(random.nextInt(<span class="number">100</span>) + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span> Uni.createFrom().nullItem().onItem().delayIt().by(delay);</span><br><span class="line">        &#125;)</span><br><span class="line">).subscribe().with(x -&gt; System.out.print(<span class="string">&quot;merge&quot;</span> + x + <span class="string">&quot;, &quot;</span>));</span><br><span class="line">multi.onItem().transformToMultiAndConcatenate(item -&gt; Multi.createFrom().item(item * item)</span><br><span class="line">        .call(x -&gt; &#123;</span><br><span class="line">            <span class="type">Duration</span> <span class="variable">duration</span> <span class="operator">=</span> Duration.ofMillis(random.nextInt(<span class="number">100</span>) + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span> Uni.createFrom().nullItem().onItem().delayIt().by(duration);</span><br><span class="line">        &#125;)</span><br><span class="line">).subscribe().with(x -&gt; System.out.print(<span class="string">&quot;concatenate&quot;</span> + x + <span class="string">&quot;, &quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可能的一种结果</span></span><br><span class="line"><span class="comment">// merge16, merge4, merge9, concatenate1, merge1, concatenate4, concatenate9, concatenate16,</span></span><br></pre></td></tr></table></figure>
+
+<p>可以发现在不定延时转换流中merge没有保持原来的顺序，而concatenate经过转换后依旧保持原来的顺序。</p>
+<h2 id="quarkus中使用panache-reactive工具使用原生sql查询"><a href="#quarkus中使用panache-reactive工具使用原生sql查询" class="headerlink" title="quarkus中使用panache reactive工具使用原生sql查询"></a>quarkus中使用panache reactive工具使用原生sql查询</h2><ol>
+<li>在实体类上使用注解<code>@NamedNativeQueries</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NamedNativeQueries(&#123;</span></span><br><span class="line"><span class="meta">        @NamedNativeQuery(name = &quot;Cat.findByName&quot;, query = &quot;select * from cat where name = :name &quot;, resultClass = Cat.class)</span></span><br><span class="line"><span class="meta">&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>需要在repository中使用sessionFactory调用命名查询</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inject</span></span><br><span class="line">    Mutiny.SessionFactory sessionFactory;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 命名查询，使用原生SQL</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name 姓名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Uni&lt;List&lt;Cat&gt;&gt; 单项流</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Uni&lt;List&lt;Cat&gt;&gt; <span class="title function_">findCat</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sessionFactory.withSession(session -&gt; session.createNamedQuery(<span class="string">&quot;Cat.findByName&quot;</span>, Cat.class)</span><br><span class="line">                .setParameter(<span class="string">&quot;name&quot;</span>, name).getResultList());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>或者创建原生语句(此处使用文本块)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 编写原生SQL语句</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Uni&lt;List &lt; Cat&gt;&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Uni&lt;List&lt;Cat&gt;&gt; <span class="title function_">findByName</span><span class="params">(Long id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sessionFactory.withSession(session -&gt; session.createNativeQuery(</span><br><span class="line">                        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">                                SELECT c.*</span></span><br><span class="line"><span class="string">                                FROM Cat c</span></span><br><span class="line"><span class="string">                                join person p</span></span><br><span class="line"><span class="string">                                on c.person_id=p.id</span></span><br><span class="line"><span class="string">                                WHERE c.id = :id&quot;&quot;&quot;</span>, Cat.class)</span><br><span class="line">                .setParameter(<span class="string">&quot;id&quot;</span>, id).getResultList()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取请求信息的问题"><a href="#获取请求信息的问题" class="headerlink" title="获取请求信息的问题"></a>获取请求信息的问题</h2><ul>
+<li>使用<code>@Context</code>注入上下文对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Context</span></span><br><span class="line">HttpServerRequest request;<span class="comment">// 注意导包是 io.vertx.core.http.HttpServerRequest;而不是multy下的</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Context</span></span><br><span class="line">UriInfo uriInfo;</span><br><span class="line"></span><br><span class="line">LOGGER.info(<span class="string">&quot;RequestMethod: &quot;</span> + request.method());</span><br><span class="line">        LOGGER.info(<span class="string">&quot;URL: &quot;</span> + uriInfo.getPath());</span><br><span class="line">        LOGGER.info(<span class="string">&quot;IP: &quot;</span> + request.remoteAddress());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="事务例子"><a href="#事务例子" class="headerlink" title="事务例子"></a>事务例子</h2><ul>
+<li>事务已用<code>Panache.WithTransaciton()</code>开启,Uni的组合流会报错，不明原因。可转Multi后组合，但是不再是单项流了，另一种解决方法是使用<code>transformToUni()</code>进行转换，但会嵌套。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Multi&lt;Boolean&gt; <span class="title function_">update</span><span class="params">(Account source, Account target)</span> &#123;</span><br><span class="line">        Multi&lt;Boolean&gt; multi = sessionFactory.withSession((session) -&gt; session.find(Account.class, source.id))</span><br><span class="line">                .map(Objects::nonNull).toMulti();</span><br><span class="line">        Multi&lt;Boolean&gt; multi1 = sessionFactory.withSession((session) -&gt; session.find(Account.class, target.id))</span><br><span class="line">                .map(Objects::nonNull).toMulti();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Multi.createBy().combining().streams(multi1, multi).asTuple().map(tuple -&gt; tuple.getItem1() &amp;&amp; tuple.getItem2());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Uni&lt;Boolean&gt; <span class="title function_">transactionMoney</span><span class="params">(Account source, Account target)</span> &#123;</span><br><span class="line"></span><br><span class="line">       Uni&lt;Boolean&gt; sourceSelect = findById(source.id)</span><br><span class="line">               .map(Objects::nonNull);</span><br><span class="line">       Uni&lt;Boolean&gt; targetSelect = findById(target.id)</span><br><span class="line">               .map(Objects::nonNull);</span><br><span class="line">       <span class="keyword">return</span> sourceSelect.onItem().transformToUni(x -&gt;</span><br><span class="line">               x ? targetSelect : Uni.createFrom().item(<span class="literal">false</span>)</span><br><span class="line">       ).onItem().transformToUni(flag -&gt; &#123;</span><br><span class="line">           <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">               <span class="keyword">return</span> update(<span class="string">&quot;set money=money-50 where id=?1&quot;</span>, source.id).onItem().transformToUni(n -&gt; &#123;</span><br><span class="line">                   <span class="keyword">if</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                       <span class="keyword">return</span> update(<span class="string">&quot;set money=money+50 where id=?1&quot;</span>, target.id).map(result -&gt; result &gt; <span class="number">0</span>);</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="keyword">return</span> Uni.createFrom().item(<span class="literal">false</span>);</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> Uni.createFrom().item(() -&gt; <span class="literal">false</span>);</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blog.linlin.online">霖霖</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.linlin.online/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/">http://blog.linlin.online/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.linlin.online" target="_blank">霖霖的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/22/fetch-%E8%8E%B7%E5%8F%96%E6%B5%81%E5%BC%8F%E6%95%B0%E6%8D%AE/" title="fetch 获取流式数据"><img class="cover" src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">fetch 获取流式数据</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/24/Nextjs/" title="NextJs"><img class="cover" src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">NextJs</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2023/05/02/a6f2b4f9a3684694824b18892588c9e3file.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">霖霖</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/linlin991229"><i class="fab fa-github"></i><span>github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/linlin991229" target="_blank" title="'#24292e'"><i class="fab fa-github"></i></a><a class="social-icon" href="/1589861957@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quarkus%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">Quarkus学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="toc-number">2.</span> <span class="toc-text">云原生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GraalVM%EF%BC%88%E6%A0%BC%E5%8A%B3%E5%B0%94%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">GraalVM（格劳尔虚拟机）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%BC%8F%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">指令式与响应式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.1.</span> <span class="toc-text">1.线程的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Muity%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8C%85"><span class="toc-number">5.</span> <span class="toc-text">Muity响应式包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi%E6%B5%81%E4%B8%AD%E7%9A%84%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95transformToMultiAndMerge%E5%92%8CtransformToMultiAndConcatenate%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.1.</span> <span class="toc-text">Multi流中的转换方法transformToMultiAndMerge和transformToMultiAndConcatenate的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#quarkus%E4%B8%AD%E4%BD%BF%E7%94%A8panache-reactive%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9Fsql%E6%9F%A5%E8%AF%A2"><span class="toc-number">6.</span> <span class="toc-text">quarkus中使用panache reactive工具使用原生sql查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">获取请求信息的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E4%BE%8B%E5%AD%90"><span class="toc-number">8.</span> <span class="toc-text">事务例子</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-Java/" title="设计模式-Java"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式-Java"/></a><div class="content"><a class="title" href="/2024/06/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-Java/" title="设计模式-Java">设计模式-Java</a><time datetime="2024-06-22T11:05:56.000Z" title="发表于 2024-06-22 19:05:56">2024-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/22/fetch-%E8%8E%B7%E5%8F%96%E6%B5%81%E5%BC%8F%E6%95%B0%E6%8D%AE/" title="fetch 获取流式数据"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="fetch 获取流式数据"/></a><div class="content"><a class="title" href="/2024/06/22/fetch-%E8%8E%B7%E5%8F%96%E6%B5%81%E5%BC%8F%E6%95%B0%E6%8D%AE/" title="fetch 获取流式数据">fetch 获取流式数据</a><time datetime="2024-06-22T10:11:21.000Z" title="发表于 2024-06-22 18:11:21">2024-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/" title="Quarkus框架"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Quarkus框架"/></a><div class="content"><a class="title" href="/2023/09/24/Quarkus%E6%A1%86%E6%9E%B6/" title="Quarkus框架">Quarkus框架</a><time datetime="2023-09-24T07:32:11.000Z" title="发表于 2023-09-24 15:32:11">2023-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/24/Nextjs/" title="NextJs"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NextJs"/></a><div class="content"><a class="title" href="/2023/09/24/Nextjs/" title="NextJs">NextJs</a><time datetime="2023-09-24T07:30:51.000Z" title="发表于 2023-09-24 15:30:51">2023-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/24/RxJs/" title="RxJs"><img src="https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RxJs"/></a><div class="content"><a class="title" href="/2023/09/24/RxJs/" title="RxJs">RxJs</a><time datetime="2023-09-24T07:29:01.000Z" title="发表于 2023-09-24 15:29:01">2023-09-24</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://edu-lin-110.oss-cn-chengdu.aliyuncs.com/2022/12/25/285a6096cb9c4f0895ac0b33dede8a559.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 霖霖</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
